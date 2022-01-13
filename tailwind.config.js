@@ -20,9 +20,9 @@ module.exports = {
   purge: {
     enabled: guessProductionMode(),
     content: [
-      './apps/**/*.{html,ts}',
-      './libs/**/*.{html,ts}',
-    ]
+      './src/**/*.html',
+      './src/**/*.ts',
+    ],
   },
   darkMode: false,
   theme: {
@@ -32,16 +32,29 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      blue: colors.blue,
       sky: colors.sky,
-      rose: colors.rose,
+    },
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
     },
     container: {
+      screens: {
+        xs: '100%',
+        sm: '480px',
+        lg: '480px',
+      },
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '6rem',
+        DEFAULT: '0',
+        sm: '0',
+        lg: '0',
+        xl: '0',
       },
     },
     fontSize: {
