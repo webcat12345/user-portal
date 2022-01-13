@@ -10,6 +10,10 @@ body {
   background: black;
 }
 
+a {
+  @apply cursor-pointer
+}
+
 .form-group {
   @apply flex flex-col;
   label {
@@ -23,7 +27,6 @@ body {
   }
 }
 
-
 .btn {
-  @apply font-medium h-50 shadow-md bg-sky-600 text-white px-20 flex items-center
+  @apply rounded-md cursor-pointer font-medium h-55 shadow-md bg-blue-500 text-white px-20 flex justify-center items-center hover:bg-blue-400 disabled:bg-blue-300
 }
