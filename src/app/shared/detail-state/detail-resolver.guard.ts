@@ -3,11 +3,9 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { catchError, map, Observable, of } from 'rxjs';
 
 import { DetailStateService } from './detail-state.service';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../core/services/user.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DetailResolverGuard implements CanActivate {
 
   constructor(

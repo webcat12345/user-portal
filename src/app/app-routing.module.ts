@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 
-import { DetailResolverGuard } from './core/guards/detail-resolver.guard';
+import { DetailResolverGuard } from './shared/detail-state/detail-resolver.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

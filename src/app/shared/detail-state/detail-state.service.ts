@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { User } from '../models/user';
+import { User } from '../../core/models/user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DetailStateService {
 
   private user: User | null = null;

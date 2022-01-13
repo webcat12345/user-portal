@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, finalize, Subject, takeUntil, throwError } from 'rxjs';
 
 import { UserService } from '../core/services/user.service';
+import { DetailStateService } from '../shared/detail-state/detail-state.service';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +23,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private userService: UserService,
-    private router: Router
+    private detailStateService: DetailStateService
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         return throwError(err);
       })
     ).subscribe(user => {
+      this.detailStateService.setUser(user);
       this.router.navigate([this.form.value.id]);
     });
   }
