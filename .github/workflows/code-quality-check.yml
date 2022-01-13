@@ -25,6 +25,6 @@ jobs:
       - name: AoT Build
         run: npm run build
 
-      - name: Unit Test
-        run: npm run test
+#      - name: Unit Test
+#        run: npm run test
 
