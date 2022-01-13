@@ -17,11 +17,11 @@ export class DetailResolverGuard implements CanActivate {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable<boolean> {
     const user = this.detailStateService.getUser();
     const id = Number(route.params['id']);
     if (user && user.userId === id) {
-      return true;
+      return of(true);
     } else {
       return this.userService.getUserById(id).pipe(
         map(user => {
