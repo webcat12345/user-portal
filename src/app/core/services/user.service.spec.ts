@@ -15,7 +15,6 @@ describe('UserService', () => {
         HttpClientModule
       ]
     });
-    service = TestBed.inject(UserService);
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     service = new UserService(httpClientSpy);
   });
