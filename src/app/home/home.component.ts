@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { finalize } from 'rxjs';
+import { catchError, finalize, Subject, takeUntil, throwError } from 'rxjs';
 
 import { UserService } from '../core/services/user.service';
 
@@ -10,12 +10,15 @@ import { UserService } from '../core/services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   isLoading = false;
+  hasError = false;
   form: FormGroup = this.fb.group({
     id: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
   });
+
+  private unsubscribeAll: Subject<null> = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -24,6 +27,14 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.form.valueChanges.pipe(
+      takeUntil(this.unsubscribeAll)
+    ).subscribe(() => this.hasError = false);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribeAll.next(null);
+    this.unsubscribeAll.complete();
   }
 
   search() {
@@ -34,9 +45,13 @@ export class HomeComponent implements OnInit {
 
     this.isLoading = true;
     this.userService.getUserById(id).pipe(
-      finalize(() => this.isLoading = false)
+      finalize(() => this.isLoading = false),
+      catchError(err => {
+        this.hasError = true;
+        return throwError(err);
+      })
     ).subscribe(user => {
-      this.router.navigate([this.form.value.id] );
+      this.router.navigate([this.form.value.id]);
     });
   }
 }
