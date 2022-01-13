@@ -1,27 +1,46 @@
-# UserPortal
+# User Portal Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+[![codecov](https://codecov.io/gh/webcat12345/user-portal/branch/main/graph/badge.svg?token=XYSEDWWUUO)](https://codecov.io/gh/webcat12345/user-portal)
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project was created by [Angular](https://github.com/angular/angular) and deployed as a Github Page.
 
-## Code scaffolding
+## Prerequisite
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* This project will run on `node.js` environment.
+* This is the frontend service, so to run this, you may need to run backend api on your local and change the [environment.ts](./src/environments/environment.ts) to refer the correct api url.
+* By default, api url for the local environment is http://localhost:3000, you can check the [environment.ts](./src/environments/environment.ts).
+* Or you can use the hosted api - https://user-portal-api-v1.herokuapp.com, you can check the [environment.prod.ts](./src/environments/environment.prod.ts).
 
-## Build
+## Technical specifications
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* We are using [Tailwindcss](https://tailwindcss.com/) for the UI components, you can find out the default team from [tailwind.config.js](./tailwind.config.js)
+* To improve the performance, we are trying to handle Change Detection Strategy carefully.
 
-## Running unit tests
+## About project configure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Hosted on Github, and CI/CD configured using [Github Actions](https://github.com/features/actions) and [Github Pages](https://pages.github.com/)
+* Github action will check code quality, such as lint, unit test for each git push actions
+* When you push your code to the `master` branch, the [action](./.github/workflows/deploy.yml) will deploy your changes to the hosting.
+* Each of your pushes will be automatically tested by the [action](./.github/workflows/code-quality-check.yml).
+* Code coverage - ???
 
-## Running end-to-end tests
+## Running on local environment
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+$ npm install
+$ npm run start
+# Or if you have @angular/cli installed globally on your computer
+$ ng serve
+```
 
-## Further help
+## Running test manually
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+# unit tests
+$ npm run test
+
+# lint check
+$ npm run lint
+```
