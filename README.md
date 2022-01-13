@@ -1,6 +1,6 @@
 # User Portal Website
 
-[![codecov](https://codecov.io/gh/webcat12345/user-portal/branch/main/graph/badge.svg?token=XYSEDWWUUO)](https://codecov.io/gh/webcat12345/user-portal)
+[![codecov](https://codecov.io/gh/webcat12345/user-portal/branch/master/graph/badge.svg?token=XYSEDWWUUO)](https://codecov.io/gh/webcat12345/user-portal)
 
 ## Description
 
