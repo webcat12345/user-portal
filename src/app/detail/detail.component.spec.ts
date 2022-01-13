@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailComponent } from './detail.component';
+import { DetailStateModule } from '../shared/detail-state/detail-state.module';
 
 describe('DetailComponent', () => {
   let component: DetailComponent;
@@ -8,7 +9,10 @@ describe('DetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailComponent ]
+      declarations: [ DetailComponent ],
+      imports: [
+        DetailStateModule.forRoot()
+      ]
     })
     .compileComponents();
   });

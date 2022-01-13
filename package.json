@@ -8,6 +8,7 @@
     "build:gh-page": "ng build --output-path dist --base-href /user-portal/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:cov": "ng test --code-coverage",
     "lint": "ng lint"
   },
   "private": true,
