@@ -1,1 +1,18 @@
-<p>detail works!</p>
+<div class="mt-50">
+  <form>
+    <div class="form-group mb-20">
+      <label for="id">UserID</label>
+      <input id="id" class="form-input border-2 border-blue-200" [value]="user?.userId" readonly>
+    </div>
+
+    <div class="form-group mb-20">
+      <label for="title">Title</label>
+      <input id="title" class="form-input border-2 border-blue-200" [value]="user?.title" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea id="body" class="form-textarea border-2 border-blue-200" rows="10" [value]="user?.body" readonly></textarea>
+    </div>
+  </form>
+</div>
