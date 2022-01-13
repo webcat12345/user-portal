@@ -1,1 +1,17 @@
-<p>home works!</p>
+<form class="flex items-center" [formGroup]="form" (ngSubmit)="search()">
+  <div class="form-group">
+    <label for="id">User ID</label>
+    <input id="id" class="form-input" placeholder="Please enter id of user" formControlName="id" />
+
+    <div class="font-12 red" *ngIf="form.get('id')?.invalid && (form.get('id')?.dirty || form.get('id')?.touched)">
+      <div *ngIf="form.get('id')?.errors?.['required']">
+        ID is required.
+      </div>
+      <div *ngIf="form.get('id')?.errors?.['pattern']">
+        ID must be a numberic value.
+      </div>
+    </div>
+  </div>
+
+  <button class="btn bg-primary">Show</button>
+</form>
