@@ -20,10 +20,10 @@ a {
     @apply font-medium mb-10;
   }
   .form-input {
-    @apply px-10 h-55 bg-blue-50 rounded-md border-none;
+    @apply px-10 h-55 bg-blue-50 rounded-md;
   }
   .form-textarea {
-    @apply px-10 bg-blue-50 rounded-md border-none;
+    @apply px-10 bg-blue-50 rounded-md;
   }
 }
 
