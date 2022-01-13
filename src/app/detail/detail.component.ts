@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { DetailStateService } from '../shared/detail-state/detail-state.service';
 
@@ -7,15 +7,13 @@ import { DetailStateService } from '../shared/detail-state/detail-state.service'
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent {
 
   user = this.detailStateService.getUser();
 
   constructor(
     private detailStateService: DetailStateService
-  ) { }
-
-  ngOnInit(): void {
+  ) {
   }
 
 }
