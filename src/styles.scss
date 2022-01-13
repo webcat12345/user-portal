@@ -6,6 +6,24 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background: black;
+}
+
+.form-group {
+  @apply flex flex-col;
+  label {
+    @apply font-medium mb-10;
+  }
+  .form-input {
+    @apply px-10 h-55 bg-blue-50 rounded-md border-none;
+  }
+  .form-textarea {
+    @apply px-10 bg-blue-50 rounded-md border-none;
+  }
+}
+
+
 .btn {
   @apply font-medium h-50 shadow-md bg-sky-600 text-white px-20 flex items-center
 }
