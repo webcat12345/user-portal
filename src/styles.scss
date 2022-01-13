@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: black;
+}
+
+a {
+  @apply cursor-pointer
+}
+
+.form-group {
+  @apply flex flex-col;
+  label {
+    @apply font-medium mb-10;
+  }
+  .form-input {
+    @apply px-10 h-55 bg-blue-50 rounded-md;
+  }
+  .form-textarea {
+    @apply px-10 bg-blue-50 rounded-md;
+  }
+}
+
+.btn {
+  @apply rounded-md cursor-pointer font-medium h-55 shadow-md bg-blue-500 text-white px-20 flex justify-center items-center hover:bg-blue-400 disabled:bg-blue-300
+}

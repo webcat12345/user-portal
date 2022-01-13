@@ -22,9 +22,10 @@ jobs:
       - name: Install Node Modules
         run: npm install
 
+      - name: Lint Test
+        run: npm run lint
+
       - name: AoT Build
         run: npm run build
 
-#      - name: Unit Test
-#        run: npm run test
 

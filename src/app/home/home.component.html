@@ -1,0 +1,44 @@
+<div class="min-h-100vh max-h-100vh flex flex-col justify-center items-center">
+  <div class="w-full mb-80 px-20">
+    <div class="flex justify-center py-20">
+      <div class="flex justify-center rounded-full bg-blue-500 text-white p-15">
+        <i>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-150 w-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+          </svg>
+        </i>
+      </div>
+    </div>
+
+    <h2 class="font-bold text-43 text-center my-30 text-blue-500">Search Student</h2>
+
+    <form class="w-full mb-40" [formGroup]="form" (ngSubmit)="search()">
+      <div class="form-group mb-15">
+        <label for="id">User ID</label>
+        <input id="id" class="form-input" placeholder="Please enter id of user" formControlName="id" [disabled]="isLoading" />
+
+        <div class="text-12 mt-5 text-red-500">
+          <div *ngIf="form.get('id')?.invalid && (form.get('id')?.dirty || form.get('id')?.touched)">
+            <p *ngIf="form.get('id')?.errors?.['required']">
+              ID is required.
+            </p>
+            <p *ngIf="form.get('id')?.errors?.['pattern']">
+              ID must be a numberic value.
+            </p>
+          </div>
+          <p *ngIf="hasError && !isLoading">
+            We can't find a user for that user id.
+          </p>
+        </div>
+      </div>
+
+      <button class="btn bg-primary w-full text-center" [disabled]="form.invalid || isLoading">
+        <span *ngIf="isLoading">Searching...</span>
+        <span *ngIf="!isLoading">Search</span>
+      </button>
+    </form>
+
+  </div>
+</div>
