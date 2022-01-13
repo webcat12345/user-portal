@@ -18,10 +18,12 @@ export class DetailResolverGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.detailStateService.getUser()) {
+    const user = this.detailStateService.getUser();
+    const id = Number(route.params['id']);
+    if (user && user.userId === id) {
       return true;
     } else {
-      return this.userService.getUserById(route.params['id']).pipe(
+      return this.userService.getUserById(id).pipe(
         map(user => {
           this.detailStateService.setUser(user);
           return true;
