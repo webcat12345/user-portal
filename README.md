@@ -24,7 +24,7 @@ This project was created by [Angular](https://github.com/angular/angular) and de
 * Github action will check code quality, such as lint, unit test for each git push actions
 * When you push your code to the `master` branch, the [action](./.github/workflows/deploy.yml) will deploy your changes to the hosting.
 * Each of your pushes will be automatically tested by the [action](./.github/workflows/code-quality-check.yml).
-* Code coverage - ???
+* Code coverage supported.
 
 ## Running on local environment
 
